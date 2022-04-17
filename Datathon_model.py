@@ -22,12 +22,14 @@ def build_model():
         # layers.MaxPooling2D(),
         # layers.Flatten(),
         layers.Dense(7, activation='relu', kernel_regularizer='l2'),
-        layers.Dense(128, activation='relu', kernel_regularizer='l2'),
+        layers.Dense(256, activation='relu', kernel_regularizer='l2'),
+        layers.Dense(256, activation='relu', kernel_regularizer='l2'),
         layers.Dense(64, activation='relu', kernel_regularizer='l2'),
-        layers.Dense(1, kernel_regularizer='l2')
+        layers.Dense(16, activation='relu', kernel_regularizer='l2'),
+        layers.Dense(4, activation='softmax', kernel_regularizer='l2')
     ])
 
-    model.compile(optimizer='adam',
+    model.compile(optimizer='sgd',
                   loss=tf.keras.losses.MeanSquaredError(),
                   metrics=['accuracy'])
 
